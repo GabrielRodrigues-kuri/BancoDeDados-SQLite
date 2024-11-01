@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">BancoDeDados</string>
+    <string name="cadastrar_dados">cadastrar dados</string>
+    <string name="criar_banco_de_dados">criar banco de dados</string>
+    <string name="escolha_uma_das_op_es_abaixo">escolha uma das opções abaixo</string>
+    <string name="trabalhando_com_banco_de_dados_no_android">trabalhando com banco de dados no android</string>
+    <string name="todo">todo</string>
+    <string name="cadastro_de_usu_rio">cadastro de usuario</string>
+    <string name="esta_aplica_o_ir_registrar_as_informa_es_do_usu_rio_no_banco_de_dados">esta aplicavo vai registrar as informa do usuario no banco de dados</string>
+    <string name="nome">nome</string>
+    <string name="digite_seu_nome">digite seu nome</string>
+    <string name="telefone">telefone</string>
+    <string name="digite_seu_telefone">digite seu telefone</string>
+    <string name="e_mail">Email</string>
+    <string name="digite_seu_email">digite seu email</string>
+    <string name="cadastrar">cadastrar</string>
+</resources>

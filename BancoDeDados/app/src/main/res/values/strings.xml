@@ -14,4 +14,10 @@
     <string name="e_mail">Email</string>
     <string name="digite_seu_email">digite seu email</string>
     <string name="cadastrar">cadastrar</string>
+    <string name="cadastrar_dados2">Cadastrar dados (2 edição)</string>
+    <string name="status">#status</string>
+    <string name="consultar_dados">Consultar Dados</string>
+    <string name="nomeConsulta">[Nome]</string>
+    <string name="telefoneConsulta">[Telefone]</string>
+    <string name="emailConsulta">[E-Mail]</string>
 </resources>

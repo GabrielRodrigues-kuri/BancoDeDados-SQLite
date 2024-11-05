@@ -14,14 +14,18 @@ public class MainActivity extends AppCompatActivity {
 
     Button btcriarbanco;
     Button btcadrastrados;
+    Button btcadrastrados2;
+    Button btconsultardados;
     SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btcriarbanco = findViewById(R.id.btcriarbanco);
-        btcadrastrados = findViewById(R.id.btcadastrardados);
+        btcriarbanco = (Button) findViewById(R.id.btcriarbanco);
+        btcadrastrados = (Button) findViewById(R.id.btcadastrardados);
+        btcadrastrados2 = (Button) findViewById(R.id.btcadastrar2);
+        btconsultardados = (Button) findViewById(R.id.btconsultardados);
 
         btcadrastrados.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +33,24 @@ public class MainActivity extends AppCompatActivity {
                 Intent activity_grava_registros = new Intent (MainActivity.this,
                         activity_grava_registros.class) ;
                 MainActivity.this.startActivities(new Intent[]{activity_grava_registros});
+            }
+        });
+
+        btcadrastrados2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent GravaRegistrosActivity = new Intent (MainActivity.this,
+                        GravaRegistrosActivity.class) ;
+                MainActivity.this.startActivities(new Intent[]{GravaRegistrosActivity});
+            }
+        });
+
+        btconsultardados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ConsultaDadosActivity = new Intent (MainActivity.this,
+                        ConsultaDadosActivity.class) ;
+                MainActivity.this.startActivities(new Intent[]{ConsultaDadosActivity});
             }
         });
 

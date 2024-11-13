@@ -1,6 +1,5 @@
 package com.br.bancodedados;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.os.Bundle;
 import android.app.AlertDialog;
@@ -11,7 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ConsultaDadosActivity extends Activity {
+public class Consulta_Dados_Activity extends Activity {
     TextView txtnome, txttelefone, txtemail, txtstatus_registro;
 
     SQLiteDatabase db;
@@ -42,9 +41,11 @@ public class ConsultaDadosActivity extends Activity {
         imgUltimo = (ImageView) findViewById(R.id.imgultimo);
 
         try {
-            db = openOrCreateDatabase("bando_dados",Context.MODE_PRIVATE, null);
+            db = openOrCreateDatabase("banco_dados",Context.MODE_PRIVATE, null);
 
-            c = db.query("usuario", new String[]{"nome","telefone","email"},null,null,null,null,null);
+            c = db.query("usuarios", new String[]
+                    {"nome","telefone","email"},
+                    null,null,null,null,null);
 
             if(c.getCount() > 0){
                 c.moveToFirst();
@@ -52,7 +53,7 @@ public class ConsultaDadosActivity extends Activity {
 
                 txtnome.setText(c.getString(0));
                 txttelefone.setText(c.getString(1));
-                txtemail.setText(c.getString(3));
+                txtemail.setText(c.getString(2));
 
                 txtstatus_registro.setText(indice + " / " + c.getCount());
             }else{
@@ -67,7 +68,7 @@ public class ConsultaDadosActivity extends Activity {
                         indice = 1;
                         txtnome.setText(c.getString(0));
                         txttelefone.setText(c.getString(1));
-                        txtemail.setText(c.getString(3));
+                        txtemail.setText(c.getString(2));
 
                         txtstatus_registro.setText(indice + " / " + c.getCount());
                     }
@@ -77,38 +78,41 @@ public class ConsultaDadosActivity extends Activity {
                 @Override
                 public void onClick(View v){
                     if (c.getCount() > 0){
+                        if(indice > 1){
                         indice--;
                         c.moveToPrevious();
                         txtnome.setText(c.getString(0));
                         txttelefone.setText(c.getString(1));
-                        txtemail.setText(c.getString(3));
+                        txtemail.setText(c.getString(2));
 
                         txtstatus_registro.setText(indice + " / " + c.getCount());
                     }
                 }
-            });
+            }});
             imgProximo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View arg0){
                     if (c.getCount() > 0){
+                        if(indice != c.getCount()){
                         indice++;
                         c.moveToNext();
                         txtnome.setText(c.getString(0));
                         txttelefone.setText(c.getString(1));
-                        txtemail.setText(c.getString(3));
+                        txtemail.setText(c.getString(2));
 
                         txtstatus_registro.setText(indice + " / " + c.getCount());
                     }
                 }
-            });
+            }});
             imgUltimo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v){
                     if (c.getCount() > 0){
                         c.moveToLast();
+                        indice = c.getCount();
                         txtnome.setText(c.getString(0));
                         txttelefone.setText(c.getString(1));
-                        txtemail.setText(c.getString(3));
+                        txtemail.setText(c.getString(2));
 
                         txtstatus_registro.setText(indice + " / " + c.getCount());
                     }
@@ -121,7 +125,7 @@ public class ConsultaDadosActivity extends Activity {
     }
     public void MostrarMensagem(String str){
         AlertDialog.Builder dialogo = new
-        AlertDialog.Builder(ConsultaDadosActivity.this);
+        AlertDialog.Builder(Consulta_Dados_Activity.this);
 
         dialogo.setTitle("aviso");
         dialogo.setMessage(str);

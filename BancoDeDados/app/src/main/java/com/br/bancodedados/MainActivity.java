@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     Button btcadrastrados;
     Button btcadrastrados2;
     Button btconsultardados;
+    Button btalterardados;
+    Button btexcluirdados;
     SQLiteDatabase db;
 
     @Override
@@ -26,6 +28,31 @@ public class MainActivity extends AppCompatActivity {
         btcadrastrados = (Button) findViewById(R.id.btcadastrardados);
         btcadrastrados2 = (Button) findViewById(R.id.btcadastrar2);
         btconsultardados = (Button) findViewById(R.id.btconsultardados);
+        btalterardados = (Button) findViewById(R.id.btalterardados);
+        btexcluirdados = (Button) findViewById(R.id.btexcluirdados);
+
+        btcriarbanco.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View View){
+                try {
+                    db = openOrCreateDatabase( "banco_dados", Context.MODE_PRIVATE, null);
+
+                    db.execSQL("create table if not exists " +
+                            " usuarios(numereg integer primary key " +
+                            " autoincrement, nome text not null, telefone text" +
+                            " not null, " + " email text not null); ");
+
+                    AlertDialog.Builder dialogo = new
+                            AlertDialog.Builder(MainActivity.this);
+                    dialogo.setTitle("aviso")
+                            .setMessage("banco de dados criado com sucesso!")
+                            .setNeutralButton("ok",null)
+                            .show();
+                } catch (Exception e) {
+
+                }
+            }
+        });
 
         btcadrastrados.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,33 +74,26 @@ public class MainActivity extends AppCompatActivity {
 
         btconsultardados.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent ConsultaDadosActivity = new Intent (MainActivity.this,
-                        ConsultaDadosActivity.class) ;
-                MainActivity.this.startActivities(new Intent[]{ConsultaDadosActivity});
+            public void onClick(View ards0) {
+                Intent consultaDadosActivity = new Intent (MainActivity.this,
+                        Consulta_Dados_Activity.class) ;
+                MainActivity.this.startActivities(new Intent[]{consultaDadosActivity});
             }
         });
-
-        btcriarbanco.setOnClickListener(new View.OnClickListener(){
+        btalterardados.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View View){
-                try {
-                    db = openOrCreateDatabase( "banco_dados",
-                            Context.MODE_PRIVATE, null);
-                    db.execSQL("create table if not exists " +
-                            " usuarios(numereg integer primary key " +
-                            " autoincrement, nome text not null, telefone text" +
-                            " not null, " + " email text not null) ");
-
-                    AlertDialog.Builder dialogo = new
-                            AlertDialog.Builder(MainActivity.this);
-                    dialogo.setTitle("aviso")
-                            .setMessage("banco de dados criado com sucesso!")
-                            .setNeutralButton("ok",null)
-                            .show();
-                } catch (Exception e) {
-
-                }
+            public void onClick(View ards0) {
+                Intent AlterarDadosActivity = new Intent (MainActivity.this,
+                        AlterarDadosActivity.class) ;
+                MainActivity.this.startActivities(new Intent[]{AlterarDadosActivity});
+            }
+        });
+        btexcluirdados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View ards0) {
+                Intent ExcluirDadosActivity = new Intent (MainActivity.this,
+                        ExcluirDadosActivity.class) ;
+                MainActivity.this.startActivities(new Intent[]{ExcluirDadosActivity});
             }
         });
     }

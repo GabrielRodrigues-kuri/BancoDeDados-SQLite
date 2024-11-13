@@ -13,7 +13,13 @@
         android:theme="@style/Theme.BancoDeDados"
         tools:targetApi="31">
         <activity
-            android:name=".ConsultaDadosAtivity"
+            android:name=".ExcluirDadosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AlterarDadosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Consulta_Dados_Activity"
             android:exported="false" />
         <activity
             android:name=".GravaRegistrosActivity"

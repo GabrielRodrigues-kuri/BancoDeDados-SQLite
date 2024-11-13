@@ -127,7 +127,7 @@ public class ExcluirDadosActivity extends AppCompatActivity {
         diExcluirRegistro = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
-                db.execSQL("delete from usuarios where = " + numereg);
+                db.execSQL("delete from usuarios where numereg=" + numereg);
                 CarregarDados();
                 mostrarmensagem("dados Excluidos com sucesso");
             }

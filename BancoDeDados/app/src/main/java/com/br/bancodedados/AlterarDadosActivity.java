@@ -44,6 +44,8 @@ public class AlterarDadosActivity extends AppCompatActivity {
         imgproximo = (ImageView) findViewById(R.id.imgproximo);
         imgultimo = (ImageView) findViewById(R.id.imgultimo);
 
+        btalterardados = (Button) findViewById(R.id.btalterardados);
+
         db = openOrCreateDatabase("banco_dados",Context.MODE_PRIVATE, null);
 
         c = db.query("usuarios", new String[]
@@ -131,7 +133,7 @@ public class AlterarDadosActivity extends AppCompatActivity {
                 String email = txtemail.getText().toString();
 
                 try {
-                    db.execSQL("update usuarios set nome='"+ nome +"', telefone = '" + telefone +"', email = '" + email + "where numereg = " + numereg);
+                    db.execSQL("update usuarios set nome='"+ nome +"', telefone = '" + telefone +"', email = '" + email + "' where numereg = " + numereg);
 
                     mostrarmensagem("Dados alterados com sucesso");
                 }catch(Exception e){

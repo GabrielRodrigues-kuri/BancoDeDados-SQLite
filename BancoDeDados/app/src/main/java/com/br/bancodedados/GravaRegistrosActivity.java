@@ -32,7 +32,7 @@ public class GravaRegistrosActivity extends AppCompatActivity {
         edemail = (EditText) findViewById(R.id.edemail);
 
         try {
-            db = openOrCreateDatabase("banco_de_dados",Context.MODE_PRIVATE, null);
+            db = openOrCreateDatabase("banco_dados",Context.MODE_PRIVATE, null);
         }
         catch (Exception e)
         {
@@ -51,7 +51,7 @@ public class GravaRegistrosActivity extends AppCompatActivity {
                 valor.put("telefone", telefone);
                 valor.put("email", email);
                 try {
-                    db.insert("usuario",null,valor);
+                    db.insert("usuarios",null,valor);
                     MostrarMensagem("dados cadastrados com sucesso");
                 }
                 catch (Exception e)
